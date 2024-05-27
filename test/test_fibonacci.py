@@ -1,5 +1,5 @@
 import pytest
-from src.examples.fibonacci import fibonacci
+from src.algo.fibonacci import fibonacci
 
 def test1():
     n = 5

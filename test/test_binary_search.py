@@ -1,4 +1,4 @@
-from src.examples.binary_search import binary_search
+from src.algo.binary_search import binary_search
 
 
 def test1():

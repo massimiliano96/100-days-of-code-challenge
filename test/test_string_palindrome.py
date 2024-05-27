@@ -1,4 +1,4 @@
-from src.examples.string_palindrome import is_palindrom
+from src.algo.string_palindrome import is_palindrom
 
 
 def test1():

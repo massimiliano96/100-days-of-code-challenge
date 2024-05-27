@@ -1,4 +1,4 @@
-from src.examples.group_anagrams import group_anagrams
+from src.algo.group_anagrams import group_anagrams
 
 
 # Verify that anagrams are grouped together correctly
