@@ -17,3 +17,4 @@ class Solution:
         
         return True
         
+# For sure not the optimal solution, since numCourses is unused, try to find a better algo
