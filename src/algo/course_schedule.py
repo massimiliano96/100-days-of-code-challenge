@@ -6,15 +6,30 @@
 # Return true if you can finish all courses. Otherwise, return false.
 
 from typing import List
+from collections import defaultdict
 
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
-        for preq in prerequisites:
-            current_rev_preq = list(preq)
-            current_rev_preq.reverse()
-            if current_rev_preq in prerequisites:
+        graph = defaultdict(list)
+        for course, preq in prerequisites:
+            graph[preq].append(course)
+        
+        
+        for course in range(0, numCourses):
+            # 0 = not visisted, 1 = visited
+            state = [0] * numCourses
+            if self.hasCycle(graph, state, course):
                 return False
         
         return True
+    
+    def hasCycle(self, graph, state, course):
+        if state[course] == 1:
+            return True
         
-# Error: this solution does not take into consideration mutual dependencies
+        state[course] = 1
+        for child in graph[course]:
+            if self.hasCycle(graph, state, child):
+                return True
+        
+        return False
