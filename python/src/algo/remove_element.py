@@ -10,17 +10,13 @@ from typing import List
 
 class Solution:
     def removeElement(self, nums: List[int], val: int) -> int:
-        k = len(nums)
-        for i in range(0, k-1):
-            if nums[i] == val:
-                while k >= 0 and k > i:
-                    k-=1
-                    if nums[k] != val :
-                        nums[i], nums[k] = nums[k], nums[i]
-                        break
-                    
-                
-        return k
+        last_diff_from_val = 0
+        for i in range(len(nums)):
+            if nums[i] != val:
+                nums[last_diff_from_val] = nums[i]
+                last_diff_from_val += 1
+        return last_diff_from_val
+        
                 
             
             
