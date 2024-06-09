@@ -9,3 +9,8 @@ def test2():
     nums = [2,2,1,1,1,2,2]
     solution = Solution()
     assert solution.majorityElement(nums) == 2
+    
+def test3():
+    nums = [2,2,3,2,3,2,3,2,3,2,1]
+    solution = Solution()
+    assert solution.majorityElementMoore(nums) == 2
