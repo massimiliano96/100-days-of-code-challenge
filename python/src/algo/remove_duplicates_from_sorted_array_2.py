@@ -15,25 +15,13 @@ from typing import List
 
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
-        if len(nums) > 0:
-            index = 1
-            curr_num = nums[0]
-            max_count = 2
-            current_count = 1
-            for i in range(1,len(nums)):
-                if nums[i] == curr_num:
-                    if current_count < max_count:
-                        nums[index] = nums[i]
-                        curr_num = nums[i]
-                        current_count+=1
-                        index+=1
-                else:
-                    nums[index] = nums[i]
-                    curr_num = nums[i]
-                    current_count = 1
-                    index+=1
-            return index
-        else:
-            return 0
-                    
+        if len(nums) < 3:
+            return len(nums)
+        
+        slow = 2
+        for fast in range(2,len(nums)):
+            if nums[fast] != nums[slow-2]:
+                nums[slow] = nums[fast]
+                slow+=1
+        return slow
                     
