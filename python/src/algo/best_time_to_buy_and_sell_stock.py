@@ -11,10 +11,13 @@ from typing import List
 
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        max_profit = 0
+        profit = 0
         n = len(prices)
-        for i in range(0,n-1):
-            for j in range(i,n):
-                if prices[j] - prices[i] > max_profit:
-                    max_profit = prices[j] - prices[i]
-        return max_profit
+        if n > 0:
+            buy = prices[0]
+            for i in range(1,n):
+                if prices[i] < buy:
+                    buy = prices[i]
+                elif prices[i] - buy > profit:
+                    profit = prices[i] - buy
+        return profit
