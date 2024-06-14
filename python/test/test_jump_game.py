@@ -4,8 +4,10 @@ def test1():
     nums = [2,3,1,1,4]
     sol = Solution()
     assert sol.canJump(nums)
+    assert sol.canJumpRecursive(nums)
 
 def test2():
     nums = [3,2,1,0,4]
     sol = Solution()
     assert not sol.canJump(nums)
+    assert not sol.canJumpRecursive(nums)
